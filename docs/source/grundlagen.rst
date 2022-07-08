@@ -103,7 +103,7 @@ ln -s <PFAD> <PFAD>        erstelle eine Verknüpfung
 cat <PFAD>                 zeige den gesamten Inhalt der Datei
 less <PFAD>                zeige einen Ausschnitt der Datei, scrolle mit den pfeiltasten, beende mit q
 find -L -iname \*<Text>\*  suche nach einer bestimmten Datei oder einem Ordner.
- -                          -
+ .                          .
 clear                      leere das Terminal (Alternative)
 pwd                        zeige aktuelles Arbeitsverzeichnis an
 exit                       bash-Sitzung beenden (="abmelden")/Terminal beenden
@@ -126,7 +126,7 @@ xed <PFAD>                 öffne/erstelle Textdatei und bearbeite sie mit dem g
 firefox                    starte den Firefox im Terminal und lese den aktuellen log mit
 firefox &                  starte den Firefox aus dem Terminal, und "schiebe" ihn in einen neuen Prozess (man kann normal weiter arbeiten)
 <BEFEHL> &                 dies geht auch bei jedem anderen Programm/Befehl
- -                          -
+ .                          .
 <Strg> + <L>               leere das Terminal
 <Strg> + <C>               breche eine laufende Aktion ab
 <Strg> + <D>               sende ein End Of File (EOF) zeichen (manchmal nützlich zum Beenden von Eingaben)
