@@ -4,18 +4,15 @@ Grundlagen
 
 4 Freiheiten von Freier Software
 --------------------------------
-- **Verwenden**
-   Die Freiheit, die Software uneingeschränkt und für jeden Zweck einzusetzen.
-- **Verstehen**
-   Die Freiheit, die Funktionsweise der Software untersuchen und verstehen zu können.
-- **Verbreiten**
-   Die Freiheit, Kopien der Software zu verbreiten, um damit seinen Mitmenschen zu helfen.
-- **Verändern**
-   Die Freiheit, die Software zu verändern und die Änderungen an die Öffentlichkeit weiterzugeben, sodass die gesamte Gesellschaft davon profitieren kann. 
+- **Verwenden** Freiheit, die Software uneingeschränkt und für jeden Zweck einzusetzen.
+- **Verstehen** Freiheit, die Funktionsweise der Software untersuchen und verstehen zu können.
+- **Verbreiten** Freiheit, Kopien der Software zu verbreiten, um damit seinen Mitmenschen zu helfen.
+- **Verändern** Freiheit, die Software zu verändern und die Änderungen an die Öffentlichkeit weiterzugeben, sodass die gesamte Gesellschaft davon profitieren kann. 
 
 
-   „Freie Software ist frei im Sinne von Redefreiheit, nicht im Sinne von Freibier!“
-   **Richard M. Stallman**
+      „Freie Software ist frei im Sinne von Redefreiheit, nicht im Sinne von Freibier!“
+      **Richard M. Stallman**
+
 
 Unterschied zwischen Open Source und Freier Sofware:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
