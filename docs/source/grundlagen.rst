@@ -42,6 +42,8 @@ Viele große Software-Projekte sind unter der GPL veröffentlicht:
 - Linux-Kernel
 - Weite Teile von Linux Distributionen, wie Linux Mint, Ubuntu, Debian, ..
 - F-Droid
+- Signal
+- VLC
 - Audacity
 - Gedit
 - Git
@@ -54,8 +56,27 @@ Viele große Software-Projekte sind unter der GPL veröffentlicht:
 - "Strenger": GNU Affero General Public License (AGPL): *Der Quelltext muss für Nutzer verfügbar sein, auch wenn die Software nur auf einem Server läuft*
 - "Schwächer": GNU Lesser General Public License (LGPL): *Erlaubt das Verwenden und Einbinden in eigene proprietäre Software, ohne den Code der gesamten Software offenlegen zu müssen. Das Ändern der LGPL-Software-Teile muss aber Endnutzern ermöglicht werden -> DLL/.so (Beispiel: glibc)*
 
-MIT und Apache 2 Lizenz
-^^^^^^^^^^^^^^^^^^^^^^^
+MIT, Apache und BSD Lizenz
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Diese Lizenzen beinhalten ebenfalls die 4 Freiheiten, erlauben aber quasi "alles" mit der Software zu machen.
+Man kann sie also problemlos auch in proprietäre Software-Projekte einbinden, weiterverkaufen, etc.
+
+Die drei Lizenzen unterscheiden sich untereinander nur in Nouncen (Trademark, Patentbestimmungen).
+
+Beispielsweise Android, Chromium, Apache (Webserver), oder Jitsi sind unter einer dieser Lizenzen veröffenticht.
+
+Welche Lizenz sollte man nun wählen/bevorzugen?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Das liegt natürlich ganz an einem selber. Für den reinen Nutzer ist das egal. 
+Entwickelt man die Software weiter, oder programmiert man gerade neue Software, sieht die Sache schon anders aus:
+Möchte man den "Freie Software"-Gedanken für alle Ewigkeit festsetzen, so ist die GPL-Lizenz wahrscheinlich die bessere Wahl.
+Soll man aber alles mit der Software machen können, dann ist einer der Apache, MIT, oder BSD Lizenzen zu wählen. 
+Solche Projekte sind auch sehr erfolgreich. Man muss sich aber damit abfinden, 
+dass ein Unternehmen Deine Software weiterentwickelt, den Quellcode schließt und für viel Geld verkauft.
+
+Zweiteres ist für Programm-Bibliotheken schon besser geeignet. Sobald man nämlich Source-Code von einer unter der GPL lizenzierten Software
+verwenden möchte, muss man den gesamten Code auch unter einer der GPL ähnlichen Lizenz veröffentlichen. 
+Das ist für viele Programmierer unpraktisch/unbrauchbar. (Abhilfe kann hier die vorher vorgestellte LGPL schaffen, die in der "Mitte" der beiden Fronten steht.)
 
 
 
