@@ -87,16 +87,13 @@ Terminal-Grundwissen
 Diese Befehle sollte man alle aus dem FF können. 
 Sie helfen einem in so ziemlich allen Lebenslagen auf Linux.
 
-=====  =====  ======
-   Inputs     Output
-------------  ------
-  A      B    A or B
-=====  =====  ======
-False  False  False
-True   False  True
-False  True   True
-True   True   True
-=====  =====  ======
+================= =======================================================
+   Befehl            Beschreibung
+----------------- -------------------------------------------------------
+cd                wechsle ein Verzeichnis
+ls                zeige Dateien an
+ls -al #oder ll   zeige alle Dateien mit allen Infos an
+
 
 
 
