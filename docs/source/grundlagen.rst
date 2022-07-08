@@ -87,15 +87,21 @@ Terminal-Grundwissen
 Diese Befehle sollte man alle aus dem FF können. 
 Sie helfen einem in so ziemlich allen Lebenslagen auf Linux.
 
-================= =======================================================
+================= ==============================================================================================================
    Befehl            Beschreibung
------------------ -------------------------------------------------------
-cd                wechsle ein Verzeichnis
-ls                zeige Dateien an
+----------------- --------------------------------------------------------------------------------------------------------------
+cd <PFAD>         wechsle ein Verzeichnis
+ls (<PFAD>)       zeige Dateien an
 ls -al #oder ll   zeige alle Dateien mit allen Infos an
+touch <PFAD>      erstelle eine leere Datei
+cat <PFAD>        Zeige den gesamten Inhalt der Datei
+less <PFAD>       Zeige einen Ausschnitt der Datei, scrolle mit den pfeiltasten, beende mit q
+pwd               gebe aktuelles Arbeitsverzeichnis aus
 
 
 
+Relative und Absolute Pfade
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
