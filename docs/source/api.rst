@@ -1,7 +1,8 @@
-API
-===
+Aufbau von Linux
+================
 
-.. autosummary::
-   :toctree: generated
+Boot-Prozess
+------------
 
-   lumache
+Ordnerstruktur
+--------------
