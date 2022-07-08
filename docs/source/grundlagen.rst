@@ -97,6 +97,7 @@ touch <PFAD>      erstelle eine leere Datei
 cat <PFAD>        Zeige den gesamten Inhalt der Datei
 less <PFAD>       Zeige einen Ausschnitt der Datei, scrolle mit den pfeiltasten, beende mit q
 pwd               gebe aktuelles Arbeitsverzeichnis aus
+================= ==============================================================================================================
 
 
 
