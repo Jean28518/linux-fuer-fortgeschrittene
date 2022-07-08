@@ -86,56 +86,139 @@ Terminal-Grundwissen
 --------------------
 Diese Befehle sollte man alle aus dem FF können. 
 Sie helfen einem in so ziemlich allen Lebenslagen auf Linux.
+Sofern die Programme installiert sind, funktionieren die Befehle/Tastenkombinationen auf ALLEN Linux-Distributionen und UNIX-artigen Systemen.
 
-================= ==============================================================================================================
-   Befehl            Beschreibung
------------------ --------------------------------------------------------------------------------------------------------------
-cd <PFAD>         wechsle ein Verzeichnis
-ls (<PFAD>)       zeige Dateien an
-ls -al #oder ll   zeige alle Dateien mit allen Infos an
-touch <PFAD>      erstelle eine leere Datei
-cat <PFAD>        Zeige den gesamten Inhalt der Datei
-less <PFAD>       Zeige einen Ausschnitt der Datei, scrolle mit den pfeiltasten, beende mit q
-pwd               gebe aktuelles Arbeitsverzeichnis aus
-================= ==============================================================================================================
+========================== ================================================================================================================
+   **Befehl**                 **Beschreibung**
+-------------------------- ----------------------------------------------------------------------------------------------------------------
+cd                         wechsle in das aktuelle Home-Verzeichnis (persönlicher Ordner)
+cd <PFAD>                  wechsle ein Verzeichnis
+ls (<PFAD>)                zeige Dateien an
+ls -al #oder ll            zeige alle Dateien mit allen Infos an
+cp <PFAD> <PFAD>           kopiere einen Pfad an einen anderen (neuen Pfad)  (mit -r kann man auch ganze Ordner kopieren)
+mv <PFAD> <PFAD>           verschiebe eine Datei an einen anderen Pfad oder bennenne sie um
+rm <PFAD>                  lösche eine Datei (oder mit -r einen ganzen Ordner)
+mkdir <PFAD>               erstelle einen neuen Ordner
+touch <PFAD>               erstelle eine leere Datei
+ln -s <PFAD> <PFAD>        erstelle eine Verknüpfung
+cat <PFAD>                 zeige den gesamten Inhalt der Datei
+less <PFAD>                zeige einen Ausschnitt der Datei, scrolle mit den pfeiltasten, beende mit q
+find -L -iname \*<Text>\*  suche nach einer bestimmten Datei oder einem Ordner.
 
+clear                      leere das Terminal (Alternative)
+pwd                        zeige aktuelles Arbeitsverzeichnis an
+exit                       bash-Sitzung beenden (="abmelden")/Terminal beenden
+man <BEFEHL> (<SEITE>)     lese Dokumentation zu dem jew. Befehl oder der Bibliothek
+history                    zeige letzte Befehle
+echo '<TEXT>' > <PFAD>     schreibe Text in eine (neue) Datei (!überschreiben!)
+echo '<TEXT>' >> <PFAD>    schreibe Text in eine (neue) Datei (hinten anfügen)
+ip a                       zeige aktuelle IP-Adressen
+ping <Server>              zeige Erreichbarkeit zu einem Server (bspw. linuxguides.de, um den Internetzugang zu überprüfen)
+wget <ADRESSE>             lade Datei aus dem Internet herunter
+ncdu                       zeige detaillierten Speicherverbrauch an 
+htop                       starte taskmanager
+nano <PFAD>                bearbeite/erstelle eine Datei im Terminal-Texteditor
+vim <PFAD>                 wie nano, nur krasser und schwerer, aber sehr lohnenswert
+gedit <PFAD>               öffne/erstelle Textdatei und bearbeite sie mit dem grafischen Texteditor von Gnome
+kate <PFAD>                öffne/erstelle Textdatei und bearbeite sie mit dem grafischen Texteditor von KDE
+xed <PFAD>                 öffne/erstelle Textdatei und bearbeite sie mit dem grafischen Texteditor von Linux Mint
+<BEFEHL> | grep '<TEXT>'   durchsuche die Ausgabe eines Befehls nach einem bestimmten Text-Ausschnitt
+<BEFEHL> && <BEFEHL>       führe zwei Befehle nacheinander aus
+firefox                    starte den Firefox im Terminal und lese den aktuellen log mit
+firefox &                  starte den Firefox aus dem Terminal, und "schiebe" ihn in einen neuen Prozess (man kann normal weiter arbeiten)
+<BEFEHL> &                 dies geht auch bei jedem anderen Programm/Befehl
 
+<Strg> + <L>               leere das Terminal
+<Strg> + <C>               breche eine laufende Aktion ab
+<Strg> + <D>               sende ein End Of File (EOF) zeichen (manchmal nützlich zum Beenden von Eingaben)
+<Pfeiltaste hoch>          wähle vorher ausgeführten Befehl aus
+<q>                        beende einen Ansichts-Modus/ein Terminal-Programm (fuktioniert nicht bei allen, ist aber üblich)
+<Strg> + <Shift> + <C>     Kopieren
+<Strg> + <Shift> + <V>     Einfügen
+========================== ================================================================================================================
 
-Relative und Absolute Pfade
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note:: 
+   Die meisten oben vorgestellten Befehle bieten noch eine Menge an weitreichenden Optionen an, 
+   die entweder in der Man-Page (Dokumentation) oder mit der Option --help nachgelesen werden können.
 
-
-
-
-
-
-
-
-
-
-
+Terminal-Statusanzeige
+^^^^^^^^^^^^^^^^^^^^^^
+Wenn man das Terminal öffnet, steht direkt immer Text, hinter diesen man einen Befehl eintippen kann:
 
 .. code-block:: console
 
-   (.venv) $ pip install lumache
+   jean@rechner:~/Downloads$
 
-Creating recipes
-----------------
+- ``jean`` zeigt den aktuellen angemeldeten Benutzer an, als wessen man die Befehle ausführt.
+- ``rechner`` zeigt den Rechnernamen des Rechners an, auf dem man momentan angemeldet ist
+- ``~`` zeigt den aktuellen Pfad an. ``~`` ist eine Besonderheit und steht immer für den persönlichen Ordner (in diesem Fall ``/home/jean``)
+- ``$`` zeigt an, dass wir mit normalen Nutzerrechten arbeiten. Ein ``#`` würde Administrator-Rechte bedeuten
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+Relative und Absolute Pfade
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Ein relativer Pfad ist immer "der Weg" vom aktuellen Verzeichnis aus zu einem anderen Verzeichnis oder zu einer Datei irgendwo auf dem Rechner.
+**Je nach dem, in welchem Verzeichnis man sich befindet, ändert sich der relative Pfad zu einer Datei.**
+Sie sind immer mit einem ``.`` vor dem Pfad zu erkennen oder beginnen direkt mit dem Namen eines Ordners/einer Datei.
 
-.. autofunction:: lumache.get_random_ingredients
+Valide Beispiele für relative Pfade sind:
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+- ``./Downloads``
+- ``Downloads``
+- ``Downloads/``
+- ``Dokumente/Dokument.odt``
+- ``../user2/Downloads``
+- ``./``
+- ``../../etc/fstab``
 
-.. autoexception:: lumache.InvalidKindError
+.. tip:: 
+   ``./`` referenziert das aktuelle Verzeichnis, ``../`` das Verzeichnis "oben drüber"
 
-For example:
+Absolute Pfade sind eindeutige Adressen auf einem Rechner, die immer vom Wurzelverzeichnis aus refernziert werden. Sie beginnen immer mit einem ``/``.
 
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
+Valide Beispiele für absolute Pfade sind:
 
+- ``/home/jean/Downloads``
+- ``/home/jean/Downloads/``
+- ``/home/jean/Dokumente/Dokument.odt``
+- ``/home/user2/Downloads/``
+- ``/home/jean/``
+- ``/etc/fstab``
+
+
+Administrator-Rechte
+^^^^^^^^^^^^^^^^^^^^
+Administrator-Rechte kann man mit ``sudo`` vor einem Befehl bekommen.
+Möchte man sich im Terminal als Administrator "anmelden" und alle weiteren Befehle mit dem Terminal ausführen, 
+kann man das abhängig von der Distribution mit ``sudo -i``, ``su -`` oder ``su root`` erreichen.
+
+Text-Editor vim
+^^^^^^^^^^^^^^^
+Es kann sehr hilfreich sein, Dateien direkt im Terminal zu bearbeiten. 
+Alleine für vim kann man einen kompletten Kurs anbieten.
+Die nachfolgende Tabelle soll die wichtigsten Befehle zeigen.
+
+============================= ======================================================
+ **Befehl**                   **Beschreibung**
+----------------------------- ------------------------------------------------------
+i                             Einfügen-Modus
+Esc                           Kommando-Modus
+:w (<DATEINAME>)              Speichern (unter)
+:q                            Beenden
+:wq                           Speichern & Beenden
+:q!                           Beenden ohne zu Speichern
+:set <ZEILEN-NUMMER>          Gehe zu Zeile
+u                             Zurück/Rückgängig
+<STRG> <R>                    Vorwärts
+/<SUCHWORT>                   Starte Suche
+  n                           Springe zu nächstem Suchergebns
+  N                           Springe zum letzten Suchergbnis
+:%s/<SUCHE>/<ERSETZEN>        Suche und Ersetze alle Vorkommnisse
+:%s/<SUCHE>/<ERSETZEN>/c      Suche und Ersetze (mit Fragen)
+(<ZAHL>) yy                   Kopiere (eine gewisse Anzahl an) Zeilen
+(<ZAHL>) dd                   Lösche (eine gewisse Anzahl an) Zeilen
+p                             Einfügen
+============================= ======================================================
+
+.. tip:: 
+   Für Dich zu kompliziert? Nutze nano, der ist viel einfacher.
+   Mit <Strg> + <O> speichert man ab, mit <Strg> + <X> beendet man den Text-Editor.
