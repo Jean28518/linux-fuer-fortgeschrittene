@@ -38,6 +38,24 @@ Man darf die Software auch kommerziell nutzen, man kann auch damit unfreie Softw
 | Bei der Weitergabe der (geänderten) Software müssen die 4 Freiheiten weitergegeben werden. 
 | (Intern oder privat muss man den (/geänderten) Code nicht öffentlich teilen.)
 
+Viele große Software-Projekte sind unter der GPL veröffentlicht:
+- Linux-Kernel
+- Weite Teile von Linux Distributionen, wie Linux Mint, Ubuntu, Debian, ..
+- F-Droid
+- Audacity
+- Gedit
+- Git
+- MySQL
+- WordPress
+- Nextcloud
+- ....
+
+**Varianten**:
+- "Strenger": GNU Affero General Public License (AGPL): *Der Quelltext muss für Nutzer verfügbar sein, auch wenn die Software nur auf einem Server läuft*
+- "Schwächer": GNU Lesser General Public License (LGPL): *Erlaubt das Verwenden und Einbinden in eigene proprietäre Software, ohne den Code der gesamten Software offenlegen zu müssen. Das Ändern der LGPL-Software-Teile muss aber Endnutzern ermöglicht werden -> DLL/.so (Beispiel: glibc)*
+
+MIT und Apache 2 Lizenz
+^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
