@@ -19,9 +19,8 @@ Unterschied zwischen Open Source und Freier Software:
 Open Source bedeutet lediglich, dass man den Code einsehen darf.
 Dass man den Code automatisch anpassen, als bspw. große Firma nutzen, oder die Software weiterverbreiten darf, ist nicht unbedingt gegeben.
 
-      -> Das Open Source Prinzip ist also ein Teil des Prinzips Feier Software. Freie Software ist viel mehr als "nur" Open Source Software.
-
-
+.. note:: 
+   Das Open Source Prinzip ist also ein Teil des Prinzips Feier Software. Freie Software ist viel mehr als "nur" Open Source Software.
 
 Freie Sotware-Lizenzen
 ----------------------
