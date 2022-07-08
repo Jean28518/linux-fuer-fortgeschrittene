@@ -14,8 +14,8 @@ Grundlagen
       | > **Richard M. Stallman**
 
 
-Unterschied zwischen Open Source und Freier Sofware:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Unterschied zwischen Open Source und Freier Software:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Open Source bedeutet lediglich, dass man den Code einsehen darf.
 Dass man den Code automatisch anpassen, als bspw. große Firma nutzen, oder die Software weiterverbreiten darf, ist nicht unbedingt gegeben.
 
@@ -39,6 +39,7 @@ Man darf die Software auch kommerziell nutzen, man kann auch damit unfreie Softw
 | (Intern oder privat muss man den (/geänderten) Code nicht öffentlich teilen.)
 
 Viele große Software-Projekte sind unter der GPL veröffentlicht:
+
 - Linux-Kernel
 - Weite Teile von Linux Distributionen, wie Linux Mint, Ubuntu, Debian, ..
 - F-Droid
@@ -50,9 +51,10 @@ Viele große Software-Projekte sind unter der GPL veröffentlicht:
 - MySQL
 - WordPress
 - Nextcloud
-- ....
+- ...
 
 **Varianten**:
+
 - "Strenger": GNU Affero General Public License (AGPL): *Der Quelltext muss für Nutzer verfügbar sein, auch wenn die Software nur auf einem Server läuft*
 - "Schwächer": GNU Lesser General Public License (LGPL): *Erlaubt das Verwenden und Einbinden in eigene proprietäre Software, ohne den Code der gesamten Software offenlegen zu müssen. Das Ändern der LGPL-Software-Teile muss aber Endnutzern ermöglicht werden -> DLL/.so (Beispiel: glibc)*
 
@@ -67,22 +69,34 @@ Beispielsweise Android, Chromium, Apache (Webserver), oder Jitsi sind unter eine
 
 Welche Lizenz sollte man nun wählen/bevorzugen?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Das liegt natürlich ganz an einem selber. Für den reinen Nutzer ist das egal. 
+Das liegt natürlich ganz an einem selber. Für den reinen End-Nutzer ist das egal. 
+
 Entwickelt man die Software weiter, oder programmiert man gerade neue Software, sieht die Sache schon anders aus:
 Möchte man den "Freie Software"-Gedanken für alle Ewigkeit festsetzen, so ist die GPL-Lizenz wahrscheinlich die bessere Wahl.
 Soll man aber alles mit der Software machen können, dann ist einer der Apache, MIT, oder BSD Lizenzen zu wählen. 
 Solche Projekte sind auch sehr erfolgreich. Man muss sich aber damit abfinden, 
 dass ein Unternehmen Deine Software weiterentwickelt, den Quellcode schließt und für viel Geld verkauft.
 
-Zweiteres ist für Programm-Bibliotheken schon besser geeignet. Sobald man nämlich Source-Code von einer unter der GPL lizenzierten Software
-verwenden möchte, muss man den gesamten Code auch unter einer der GPL ähnlichen Lizenz veröffentlichen. 
+MIT, Apache, BSD sind für Programm-Bibliotheken in der Regel besser geeignet. 
+Sobald man nämlich Source-Code von einer unter der GPL lizenzierten Software verwenden möchte, muss man den gesamten Code auch unter einer der GPL ähnlichen Lizenz veröffentlichen. 
 Das ist für viele Programmierer unpraktisch/unbrauchbar. (Abhilfe kann hier die vorher vorgestellte LGPL schaffen, die in der "Mitte" der beiden Fronten steht.)
 
 
+Terminal-Grundwissen
+--------------------
+Diese Befehle sollte man alle aus dem FF können. 
+Sie helfen einem in so ziemlich allen Lebenslagen auf Linux.
 
-
-Terminal-Grundlagen
--------------------
+=====  =====  ======
+   Inputs     Output
+------------  ------
+  A      B    A or B
+=====  =====  ======
+False  False  False
+True   False  True
+False  True   True
+True   True   True
+=====  =====  ======
 
 
 
