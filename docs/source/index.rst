@@ -20,3 +20,4 @@ Contents
 
    grundlagen
    aufbau_linux
+   installation_partitionierung_etc
