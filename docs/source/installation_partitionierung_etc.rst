@@ -212,10 +212,13 @@ Denn der Hardlink fungiert als Spiegelung der Originaldatei.
 In der Regel wollen Sie einen Softlink erstellen:
 
 ::
+
     ln -s RICHTIGE_DATEI VERKNÜPFUNG
 
 Hardlink erstellen:
+
 :: 
+
     ln RICHTIGE_DATEI VERKNÜPFUNG
 
 /etc/fstab
@@ -226,6 +229,7 @@ welche zum Start des Systems eingehängt werden sollen.
 Ein Beispiel ist:
 
 ::
+
     # <file system>                             <mount point>   <type>  <options>           <dump>  <pass>
     # Normale ext4 Partition für das Root File System:
     UUID=54d677fd-a528-4711-aee4-b0ba4a2532ee   /               ext4    errors=remount-ro   0       1
@@ -235,6 +239,7 @@ Ein Beispiel ist:
     /swapfile                                   none            swap    sw                  0       0
     # Verweis auf eine verschlüsselte Partition, welche am Ende als /data eingehangen wird:
     /dev/mapper/secret                          /data           ext4    defaults            0       0
+
 
 Das manuelle Bearbeiten dieser Datei mit einem Text-Editor ist Gang und Gebe.
 Pro Zeile wird eine Partition "beschrieben/referenziert".
