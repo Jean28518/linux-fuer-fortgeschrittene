@@ -112,7 +112,7 @@ Viel Häufiger wird eine blanke Neuinstallation getätigt und die benötigte Sof
 
 .. warning:: 
     Von daher ist eine Neuinstallation im professionellen Umfeld immer empfehlenswerter, 
-    da Bugs mit eine viel geringeren Wahrscheinlichkeit auftreten.
+    da Bugs mit einer viel geringeren Wahrscheinlichkeit auftreten.
 
 Aber trotzdem gibt es eine relativ einfache Methode, sein System auf eine neue Version hochzuziehen,
 was auch halbwegs verlässlich auch über mehrere Versionen hinweg funktioniert:
@@ -127,4 +127,22 @@ Der Unterschied ist hier, dass nicht mehr benötigte Pakete direkt automatisch m
     Auf Server-Systemen ist es häufig Zeit-Effizienter, eine Neuinstallation zu tätigen,
     wenn die gespeicherten Daten-Mengen auf dem Server nicht hoch sind. Findet man allerdings eine
     voll eingerichtete Nextcloud mit mehreren 100 GB Daten vor, ist ein manuelles Upgrade wahrscheinlich sinnvoller.
+
+Kernel wechseln
+---------------
+Manchmal kann es hilfreich sein, das System mit einem neueren Linux-Kernel auszustatten,
+besonders, wenn neue Hardware verwendet wird.
+Dies kann man bspw. auf Linux Mint über die Aktualisierungsverwaltung erledigen,
+auf debian kann man dies relativ einfach über APT erledigen:
+
+```bash
+    apt-cache search linux-image
+    sudo apt install linux-image-<flavour>
+```
+
+Die gerade ausgeführte Version findet man mit dem Befehl: ``uname -a`` 
+
+.. note::
+    Je nach dem, ob man auf dem stable, testing, oder unstable branch ist werden andere Kernel-Versionen 
+    verfügbar sein. Standardmäßig ist der stable branch aktiv. Wechseln kann man dies in ``/etc/apt/sources.list*``
 
