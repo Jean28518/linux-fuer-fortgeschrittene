@@ -148,4 +148,44 @@ Bootloader: GRUB
 ----------------
 GRUB ist der gängigste Bootloader im Linux-Umfeld, welcher von fast jedem Linux verwendet wird.
 
+Die Konfigurationsdatei ist ``/etc/default/grub`` zu finden. Nach dem Editieren ist der Befehl ``update-grub`` nötig.
+Eine ausführliche Anleitung dazu ist hier zu finden: <https://www.gnu.org/software/grub/manual/grub/grub.html>
 
+.. tip:: 
+    Stattdessen sich durch die ``/etc/default/grub`` zu schlagen, gibt es eine einfachere, grafische Methode: 
+    Grub-Customizer ist selbstverständlich und in den offiziellen Paketquellen bereits vorhanden: ``sudo apt install grub-customizer``.
+
+GRUB erneut installlieren
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Jede auf dem Rechner installierte Distribution bringt ihr eigenes GRUB mit. 
+In den MBR einer Festplatte passt jedoch nur ein Verweis auf ein GRUB. 
+Möchte man das GRUB des momentanen System erneut in den MBR installieren, und die anderen somit "überschreiben",
+führt man bspw. den Befehl: ``sudo grub-install /dev/sda`` aus. 
+Die zu verwendente Festplatte/Partition kann man bspw. mit dem Befehl ``sudo lsblk`` herausfinden.
+
+.. note:: 
+    Nutzt man anstattdessen EFI, muss man GRUB auf die jeweilige EFI Partition installieren.
+
+GRUB reparieren
+^^^^^^^^^^^^^^^
+Entweder kann man dies über ``chroot`` auf einem Livesystem 
+mit ``update-grub`` und ``grub-install`` manuell erledigen
+oder man verwendet das Tool grafische, sehr einfache Tool ``Boot-Repair``, 
+welches beispielsweise direkt über das Live-System von Linux Mint verfügbar ist.
+
+Partitionen einhängen
+---------------------
+Man kann Partitionen auf Linux mit dem Befehl ``sudo mount /dev/PARTITION /ORDNERPFAD`` einhängen,
+mit dem Befehl ``sudo umount /ORDNERPFAD`` aushängen:
+
+    jean@debian:~$ sudo lsblk
+    NAME        MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+    nvme0n1     259:0    0 476,9G  0 disk  
+    ├─nvme0n1p1 259:1    0   511M  0 part  /boot/efi
+    ├─nvme0n1p2 259:2    0  56,8G  0 part  
+    ├─nvme0n1p3 259:3    0   977M  0 part  
+    ├─nvme0n1p4 259:4    0 232,8G  0 part  
+    │ └─secret  253:0    0 232,8G  0 crypt /data
+    └─nvme0n1p6 259:5    0   186G  0 part  /
+    jean@debian:~$ sudo mount /dev/nvme0n1p2 /mnt
+    jean@debian:~$ sudo umount /mnt
