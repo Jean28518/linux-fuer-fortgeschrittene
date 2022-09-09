@@ -77,7 +77,7 @@ Allerdings hat sich die Technologie wegen Mehraufwand bei der Konfiguration und 
 nur in wenigen Bereichen durchgesetzt.
 
 Bei Interesse bietet Red Hat eine sehr ausführliche und leicht verständliche Anleitung an: 
-<https://access.redhat.com/documentation/de-de/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/index>
+https://access.redhat.com/documentation/de-de/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/index
 
 Verschlüsseltes System
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -136,7 +136,7 @@ Dies kann man bspw. auf Linux Mint über die Aktualisierungsverwaltung erledigen
 auf debian kann man dies relativ einfach über APT erledigen:
 
 ::
-    
+
     apt-cache search linux-image
     sudo apt install linux-image-<flavour>
 
@@ -151,7 +151,7 @@ Bootloader: GRUB
 GRUB ist der gängigste Bootloader im Linux-Umfeld, welcher von fast jedem Linux verwendet wird.
 
 Die Konfigurationsdatei ist ``/etc/default/grub`` zu finden. Nach dem Editieren ist der Befehl ``update-grub`` nötig.
-Eine ausführliche Anleitung dazu ist hier zu finden: <https://www.gnu.org/software/grub/manual/grub/grub.html>
+Eine ausführliche Anleitung dazu ist hier zu finden: https://www.gnu.org/software/grub/manual/grub/grub.html
 
 .. tip:: 
     Stattdessen sich durch die ``/etc/default/grub`` zu schlagen, gibt es eine einfachere, grafische Methode: 
@@ -193,3 +193,59 @@ mit dem Befehl ``sudo umount /ORDNERPFAD`` aushängen:
     └─nvme0n1p6 259:5    0   186G  0 part  /
     jean@debian:~$ sudo mount /dev/nvme0n1p2 /mnt
     jean@debian:~$ sudo umount /mnt
+
+Verknüpfungen
+-------------
+Bevor wir zu Verknüpfungen kommen, müssen wir den Unterschied zwischen Symbolischen (Softlink) und harten Links klären:
+
+Softlink vs Hardlink
+^^^^^^^^^^^^^^^^^^^^
+Ein symbolischer oder weicher Link ist ein tatsächlicher Link zur Originaldatei, 
+während ein harter Link eine Spiegelung der Originaldatei ist. 
+Wenn Sie die Originaldatei löschen, geht der Softlink "kaputt", 
+da er auf eine nicht mehr vorhandene Datei verweist.
+
+Bei einem Hardlink ist es genau umgekehrt:
+Selbst wenn Sie die Originaldatei löschen, enthält der Hardlink immer noch die Daten der Originaldatei. 
+Denn der Hardlink fungiert als Spiegelung der Originaldatei.
+
+In der Regel wollen Sie einen Softlink erstellen:
+
+::
+    ln -s RICHTIGE_DATEI VERKNÜPFUNG
+
+Hardlink erstellen:
+:: 
+    ln RICHTIGE_DATEI VERKNÜPFUNG
+
+/etc/fstab
+----------
+In der ``/etc/fstab`` Datei werden Partitionen definiert, 
+welche zum Start des Systems eingehängt werden sollen.
+
+Ein Beispiel ist:
+
+::
+    # <file system>                             <mount point>   <type>  <options>           <dump>  <pass>
+    # Normale ext4 Partition für das Root File System:
+    UUID=54d677fd-a528-4711-aee4-b0ba4a2532ee   /               ext4    errors=remount-ro   0       1
+    # Verweis auf die EFI-Partition:
+    UUID=889E-E45A                              /boot/efi       vfat    umask=0077          0       1
+    # Verweis auf einen Swapfile. (Keine Swappartition!)
+    /swapfile                                   none            swap    sw                  0       0
+    # Verweis auf eine verschlüsselte Partition, welche am Ende als /data eingehangen wird:
+    /dev/mapper/secret                          /data           ext4    defaults            0       0
+
+Das manuelle Bearbeiten dieser Datei mit einem Text-Editor ist Gang und Gebe.
+Pro Zeile wird eine Partition "beschrieben/referenziert".
+Eine normale Partition wird mit der UUID referenziert, darauf folgt der Einhängepunkt (wie bei mount), 
+der Typ ist selbstverständlich. Danach kann man verschiedene Optionen einfügen. In der Regel reicht hier ``defaults``.
+Alle Optionen kann man unter ``man fstab`` nachschlagen.
+Die ``dump`` Spalte gibt nur an, ob bei dem Backup-Programm dump dieser Eintrag mit berücksichtigt werden soll 
+(Kann für uns ignoriert werden). 
+Unter ``pass`` wird die Reihenfolge beim Einhängen während des Systemstarts angegeben. 
+``0`` steht hier für "Ignorieren".
+
+.. tip:: 
+    Generell kann man auch sehr gut die Einhängeoption von Partitionen mit dem Programm ``gnome-disks`` 
+    (Laufwerke) bearbeiten.
