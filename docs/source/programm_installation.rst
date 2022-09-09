@@ -45,6 +45,7 @@ Außerdem können noch im /etc/apt/sources.list.d/ Verzeichnis Dateien liegen, w
 Eine Zeile definiert jeweils eine Quelle.
 
 ::
+
     deb http://site.example.com/debian distribution component1 component2 component3
 
 Zu Beginn wird der Typ definiert. Dieser kann entweder ``deb`` oder ``deb-src`` sein. 
@@ -85,12 +86,14 @@ Durch diese kann man kontrollieren, was ein Flatpak-Programm auf dem System mach
 Flatpak lässt sich nachinstallieren mit 
 
 ::
+
     sudo apt install flatpak``
 
 Danach ist es empfehlenswert, das große Flathub Repository hinzuzufügen, 
 welches DER Marktplatz für Flatpaks ist:
 
 ::
+
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 
@@ -132,6 +135,7 @@ Diese befolgen wir nun Schritt für Schritt.
 Zuerst müssen wir per Git den Quellcode herunterladen:
 
 ::
+
     git clone https://github.com/supertuxkart/stk-code stk-code
     svn co https://svn.code.sf.net/p/supertuxkart/code/stk-assets stk-assets
 
@@ -139,6 +143,7 @@ Zuerst müssen wir per Git den Quellcode herunterladen:
 Wenn git und/oder subversion noch nicht installiert sind:
 
 ::
+
     sudo apt install git subversion
 
 
@@ -154,6 +159,7 @@ für die verwendete Bibliothek zu finden. Aber hier ist direkt für Debian basie
 ein einfacher Install-Befehl angegeben. Nett!
 
 ::
+
     sudo apt-get install build-essential cmake libbluetooth-dev libsdl2-dev \
     libcurl4-openssl-dev libenet-dev libfreetype6-dev libharfbuzz-dev \
     libjpeg-dev libogg-dev libopenal-dev libpng-dev \
@@ -168,6 +174,7 @@ Das merken wir uns!
 Als nächstes kommen wir zum Kompillieren:
 
 ::
+    
     # go into the stk-code directory
     cd stk-code
 
