@@ -135,6 +135,8 @@ besonders, wenn neue Hardware verwendet wird.
 Dies kann man bspw. auf Linux Mint über die Aktualisierungsverwaltung erledigen,
 auf debian kann man dies relativ einfach über APT erledigen:
 
+::
+    
     apt-cache search linux-image
     sudo apt install linux-image-<flavour>
 
@@ -177,6 +179,8 @@ Partitionen einhängen
 ---------------------
 Man kann Partitionen auf Linux mit dem Befehl ``sudo mount /dev/PARTITION /ORDNERPFAD`` einhängen,
 mit dem Befehl ``sudo umount /ORDNERPFAD`` aushängen:
+
+::
 
     jean@debian:~$ sudo lsblk
     NAME        MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
