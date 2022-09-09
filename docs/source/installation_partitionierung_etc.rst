@@ -59,4 +59,72 @@ Der Bootloader muss am Ende auf die EFI Partition installiert werden.
     Wenn bereits eine EFI-Partition existiert, muss keine neue zusätzlich erstellt werden.
     Mehrere Systeme teilen sich auch ohne Probleme die EFI-Partition.
 
-**
+Zusätzliche Partitionen
+^^^^^^^^^^^^^^^^^^^^^^^
+Zusätzlich zur ``/`` (Root) Partition, können auch einzelne Systemordner ausgelagert werden.
+Typisch wärden: ``/home``, ``/boot`` (bei verschlüsselten Systemen), ``/tmp``, ...
+Man kann aber auch seine ganz eigene zusätzliche Partition definieren.
+Bspw. ist es nicht unüblich, eine zusätzliche ``/data`` Partition zu definieren.
+Dort werden dann alle wichtigen Dateien auf dem Rechner gespeichert, welche später über Verknüpfungen
+(Sym-Links) im Persönlichen Ordner verfügbar gemacht werden.
+
+
+Logical Volume Manager
+^^^^^^^^^^^^^^^^^^^^^^
+Zusätzlich kann ein Logical Volume Manager konfiguriert werden, mit dem im Nachheinein die Partitionierung
+einfacher werden soll.
+Allerdings hat sich die Technologie wegen Mehraufwand bei der Konfiguration und die fehlende Intuitivität bis jetzt 
+nur in wenigen Bereichen durchgesetzt.
+
+Bei Interesse bietet Red Hat eine sehr ausführliche und leicht verständliche Anleitung an: 
+<https://access.redhat.com/documentation/de-de/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/index>
+
+Verschlüsseltes System
+^^^^^^^^^^^^^^^^^^^^^^
+Um zu die ``/`` Partition zu verschlüsseln, muss eine weitere (ext4) Partition für den Boot-Sektor erstellt werden.
+Der Einhängepunkt für diese Partition muss ``/boot``sein.
+Über die normale ``/`` Partition muss eine dm-crypt Partition angelegt werden.
+Die manuelle Vorgehensweise ist dort von Installer zu Installer unterschiedlich.
+Meist bieten aber die Installer auch eine automatische Methode zur Verschlüsselung an, die empfehlenswert ist.
+
+Kurs-Beispiel
+^^^^^^^^^^^^^
+- Wir erstellen eine Virtuelle Maschine und aktivieren EFI.
+- Daraufhin starten wir die aktuellste Net-Install .iso Datei.
+- In der Partitionierung erstellen wir folgende Partitionen:
+  - EFI-Partition
+  - Root-Partition (``/``)
+  - Zusätzliche verschlüsselte ``/data`` Partition
+- Als Desktop wählen wir später Xfce aus.
+
+Upgrade auf große, neue Version
+-------------------------------
+Vorerst: Solche Upgrades sind eigentlich vom Konzept her nicht vorgesehen, 
+dennnoch bietet bspw. Linux Mint seit einiger Zeit einen Installer dafür an.
+Die Aufgabe ist es, grundgenommen alles auf dem System zu aktualisieren.
+Denn bei kleinen Upgrade bleiben viele System-Bibliotheken auf einem sicheren älteren Stand,
+welche nur bei einem großen Upgrade aktualisiert, neu hinzugefügt oder gar ersetzt werden.
+Bei über 2000 installierten Paketen auf einem üblichen System 
+braucht nur ein Upgrade nicht richtig zu verlaufen - Dann verfährt man sich unter Umständen in viel mehr Probleme.
+Von daher sieht man solche Upgrades im professionellen Bereich sehr, sehr selten.
+Viel Häufiger wird eine blanke Neuinstallation getätigt und die benötigte Software danach 
+(meist auch automatisch über bash-Skripte) installiert, um Komplikationen zu vermeiden.
+
+.. warning:: 
+    Von daher ist eine Neuinstallation im professionellen Umfeld immer empfehlenswerter, 
+    da Bugs mit eine viel geringeren Wahrscheinlichkeit auftreten.
+
+Aber trotzdem gibt es eine relativ einfache Methode, sein System auf eine neue Version hochzuziehen,
+was auch halbwegs verlässlich auch über mehrere Versionen hinweg funktioniert:
+Um auf eine neue Version zu wechseln werden einfach die Software-Quellen in ``/etc/apt/sources.list*`` auf die der neuen Version gesetzt
+und dann ein ``apt dist-upgrade`` durchgeführt, was ein etwas erweitertes ``apt upgrade`` darstellt.
+Der Unterschied ist hier, dass nicht mehr benötigte Pakete direkt automatisch mit entfernt werden.
+
+.. note:: Erfahrungsbericht:
+    Mit ein bisschen Übung kann man jedes System so mit manueller Überwachung aktualisieren.
+    Dies ist für Desktop-Betriebssyteme sehr nützlich, 
+    da so nicht alle zwei Jahre das System neu eingerichtet werden muss.
+    Auf Server-Systemen ist es häufig Zeit-Effizienter, eine Neuinstallation zu tätigen,
+    wenn die gespeicherten Daten-Mengen auf dem Server nicht hoch sind. Findet man allerdings eine
+    voll eingerichtete Nextcloud mit mehreren 100 GB Daten vor, ist ein manuelles Upgrade wahrscheinlich sinnvoller.
+
