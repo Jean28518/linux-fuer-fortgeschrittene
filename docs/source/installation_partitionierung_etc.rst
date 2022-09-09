@@ -135,14 +135,17 @@ besonders, wenn neue Hardware verwendet wird.
 Dies kann man bspw. auf Linux Mint über die Aktualisierungsverwaltung erledigen,
 auf debian kann man dies relativ einfach über APT erledigen:
 
-```bash
     apt-cache search linux-image
     sudo apt install linux-image-<flavour>
-```
 
 Die gerade ausgeführte Version findet man mit dem Befehl: ``uname -a`` 
 
 .. note::
     Je nach dem, ob man auf dem stable, testing, oder unstable branch ist werden andere Kernel-Versionen 
     verfügbar sein. Standardmäßig ist der stable branch aktiv. Wechseln kann man dies in ``/etc/apt/sources.list*``
+
+Bootloader: GRUB
+----------------
+GRUB ist der gängigste Bootloader im Linux-Umfeld, welcher von fast jedem Linux verwendet wird.
+
 
