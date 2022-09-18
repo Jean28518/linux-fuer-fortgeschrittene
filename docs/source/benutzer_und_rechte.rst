@@ -163,3 +163,31 @@ Eigentümer/Gruppe ändern
   ``chown benutzer:gruppe -R pfad`` eines gesamten Ordners (und alle darunter)
 
 **Beispiel:** ``sudo chown -R www-data:www-data /var/www/html``
+
+
+Benutzer zum Administrator machen
+---------------------------------
+Dafür muss man den Nutzer der Gruppe ``sudo`` hinzufügen:
+
+::
+
+    usermod -aG sudo benutzername
+
+Passwort vergessen
+-----------------------
+Ein Administrator kann das Passwort eines anderen Nutzers mit dem Befehl ``passwd benutzername`` zurücksetzen/neu setzen.
+
+Administrator-Passwort vergessen
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Was ist los, wenn man das Passwort des Administrators vergessen hat?
+Dafür gibt es keinen offiziellen Weg, den man natürlich auch nicht zur Laufzeit des Systems beschreiten kann.
+
+Wir fangen zuerst an, den Bootloader GRUB kurzzeitig zu manipulieren. 
+Das Root-System wird früher als gedacht schreibbar gemacht, sowie wird anstattdessen der normale Linux-Startup auf eine einzige Konsole umgeleitet:
+
+- Im Grub-Menü auf "Erweiterte Optionen" gehen und dann dort auf dem ersten Eintrag die Taste ``e`` drücken.
+- Beim Linux-Start-Befehl das ``ro`` (read only) auf ``rw`` ändern (read write), sowie am Ende ``init=/bin/bash`` hinzufügen. (Auf englische Tastatur achten!)
+- Dann mit ``F10`` den kurzzeitg veränderten Befehl starten. (Dauert wenige Sekunden)
+- In der Konsole das Root-Dateisystem ("Haupt-Partition") mit ``mount -n -o remount,rw /`` einhängen
+- Mit ``passwd root``  oder ``passwd nutzername`` so das Passwort zurücksetzen.  (Auf englische Tastatur achten!!)
+- Zum Ende mit ``exec /sbin/init`` den Rechner wieder normal neustarten.
