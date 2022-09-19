@@ -23,3 +23,4 @@ Contents
    installation_partitionierung_etc
    programm_installation
    benutzer_und_rechte
+   linux_remote
