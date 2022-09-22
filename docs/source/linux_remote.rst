@@ -27,6 +27,7 @@ Damit man auf einen anderen Rechner zugreifen kann, muss auf diesem openssh-serv
 Ebenfalls muss bei der Firewall SSH erlaubt sein.
 
 ::
+
     sudo apt install openssh-server
     sudo ufw allow ssh
 
@@ -64,6 +65,7 @@ Damit kann man sich nur noch von eingetragenen Rechnern über das Zertifikat ein
 Am Ende sollte die Datei an der entsprechenden Stelle so aussehen: 
 
 ::
+
     ...
     #IgnoreRhosts yes
 
@@ -86,6 +88,7 @@ Entfernter Rechner
 Um auf unseren Rechner über die Ferne zuzugreifen, müssen wir ``xrdp`` installieren.
 
 ::
+
     sudo apt install xrdp
     ip a
 
@@ -141,6 +144,7 @@ Ist ``openssh-server`` auf dem entfernten Rechner schon installiert, kann man si
 Folgende Beispiele helfen:
 
 ::
+
     sftp jean@1.2.3.4
     sftp -P 42022 jean@1.2.3.4 # Wenn SSH über den Port 42022 erreichbar ist
 
@@ -148,6 +152,7 @@ Mit dem Befehl ``put`` kann man Dateien an den Server senden, mit ``get`` sie he
 Folgende Beispiele helfen:
 
 ::
+    
     put datei-eigener-rechner /absoluter/pfad/auf/dem/server/
 
     put -R ./relativer/pfad/auf/dem/eigenen/rechner/ordner/ /absoluter/pfad/auf/dem/server/

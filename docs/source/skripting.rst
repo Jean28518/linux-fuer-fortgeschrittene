@@ -73,6 +73,7 @@ Normale Befehle starten
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
+    
     #!/bin/bash
 
     # Startet den Firefox und man bekommt die Ausgabe mit.
@@ -90,6 +91,7 @@ Administrative Befehle wie apt
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :: 
+
     #!/bin/bash
     
     # Für apt-Befehle sollte man apt "sagen", dass es gerade durch ein Skript ansgesteuert wird.
@@ -110,6 +112,7 @@ Administrative Befehle wie apt
 Variablen
 ^^^^^^^^^
 ::
+
     #!/bin/bash
 
     # Variable definiert man relativ einfach:
@@ -144,6 +147,7 @@ Variablen
 Eingabe
 ^^^^^^^
 ::
+
     #!/bin/bash
 
     read NAME
@@ -154,6 +158,7 @@ Eingabe
 Konditionen (if)
 ^^^^^^^^^^^^^^^^
 ::
+
     #!/bin/bash
 
     # Variable definiert man relativ einfach:
@@ -225,6 +230,7 @@ Hiermit kann man Befehle verkürzen.
 Schreibt man beispielsweise 
 
 ::
+
     alias update='sudo apt update && sudo apt dist-upgrade -y'
 
 in die ``~/.bashrc``, kann man nach einem Neustart des Terminals einfach ``update`` eingegeben, und es wird anstattdessen diese Befehlskette ausgeführt.
@@ -239,6 +245,7 @@ Nahezu alle Dienste auf dem Linux-Rechner werden in der Regel über Systemd verw
 Folgende Befehle sind hilreich:
 
 ::
+
     # Mit 'q' kann man den Befehl wieder beenden.
     systemctl status minetest-server.service
 
@@ -262,6 +269,7 @@ automatisch hinzugefügt, aktiviert und gestartet.
 Die Service-Datei kann man mit folgendem Befehl einsehen:
 
 ::
+
     cat /etc/systemd/system/multi-user.target.wants/minetest-server.service 
 
     # Ausgabe: 
@@ -288,6 +296,7 @@ Eine vollständige Dokumentation findet man hier: https://www.freedesktop.org/so
 Im Laufe meiner Linux-Jahre habe ich mir eine .service-Datei Vorlage erstellt, die ich gerne hier teilen möchte:
 
 ::
+
     [Unit]
 	Description=Name der Anwendung              # Optional
 
@@ -318,6 +327,7 @@ Wiederkehrende, automatische Ausführung von Skripts
 Soll beispielsweise jeden Tag um 2 Uhr morgens ein BackUp gemacht werden? Nichts einfacher als das.
 
 ::
+
     # Erstellen Sie dafür beispielsweise ein einfaches Bash-Skript im ``/root/`` Verzeichnis. 
     # (Home-Verzeichnis des imaginären Administrators)
     sudo nano /root/backup-minetest.sh
@@ -356,7 +366,7 @@ Soll beispielsweise jeden Tag um 2 Uhr morgens ein BackUp gemacht werden? Nichts
 
     # Nach dem Abspeichern der Datei wird das Skript nun jeden Tag um 2 Uhr morgens automatisch ausgeführt, sofern der Rechner zu dieser Zeit läuft.
 
-    
+
 
 
 
