@@ -112,6 +112,7 @@ Administrative Befehle wie apt
 
 Variablen
 ^^^^^^^^^
+
 ::
 
     #!/bin/bash
@@ -147,6 +148,7 @@ Variablen
 
 Eingabe
 ^^^^^^^
+
 ::
 
     #!/bin/bash
@@ -158,6 +160,7 @@ Eingabe
  
 Konditionen (if)
 ^^^^^^^^^^^^^^^^
+
 ::
 
     #!/bin/bash
