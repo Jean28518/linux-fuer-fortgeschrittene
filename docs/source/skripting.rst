@@ -326,8 +326,8 @@ Mit dem bspw. Befehl ``journalctl -u minetest-server.service`` sehen Sie nur die
 Sie können die Ansicht mit der Taste 'q' beenden.
 
 
-Wiederkehrende, automatische Ausführung von Skripts
----------------------------------------------------
+Wiederkehrende, automatische Ausführung von Skripts (cronjobs)
+--------------------------------------------------------------
 Soll beispielsweise jeden Tag um 2 Uhr morgens ein BackUp gemacht werden? Nichts einfacher als das.
 
 ::
