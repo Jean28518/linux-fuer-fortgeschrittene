@@ -366,12 +366,12 @@ Soll beispielsweise jeden Tag um 2 Uhr morgens ein BackUp gemacht werden? Nichts
     0 2 * * * /root/backup-minetest.sh
 
     # Erklärung (von links nach rechts):
-    0: Wenn die Minuten Zahl = 0 ist
-    2: Wenn die Stunden Zahl = 2 ist (immer im 24 Stunden Format)
-    *: Tag des Monats egal (Mögliche Eingaben: *, 1 - 31)
-    *: Monat egal (Mögliche Eingaben: *, 1 - 12)
-    *: Tag der Woche egal (Mögliche Eingaben: 0 - 7) (wobei 0=Sonntag, 1=Montag, ..., 6=Samstag, 7=Sonntag)
-    /root/backup-minetest.sh: Offensichtlich der Pfad zum auszuführenden Skript
+    # 0: Wenn die Minuten Zahl = 0 ist
+    # 2: Wenn die Stunden Zahl = 2 ist (immer im 24 Stunden Format)
+    # *: Tag des Monats egal (Mögliche Eingaben: *, 1 - 31)
+    # *: Monat egal (Mögliche Eingaben: *, 1 - 12)
+    # *: Tag der Woche egal (Mögliche Eingaben: 0 - 7) (wobei 0=Sonntag, 1=Montag, ..., 6=Samstag, 7=Sonntag)
+    # /root/backup-minetest.sh: Offensichtlich der Pfad zum auszuführenden Skript
 
     # Nach dem Abspeichern der Datei wird das Skript nun jeden Tag um 2 Uhr morgens 
     # automatisch ausgeführt, sofern der Rechner zu dieser Zeit läuft.
