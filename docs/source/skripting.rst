@@ -31,12 +31,13 @@ Deswegen werden wir nur die wichtigsten Konzepte behandeln, in dem verschiedene 
 Man kann sich den Code jeweils in eine Datei mit der Endung .sh packen und dann ausführen. 
 Ein Workflow wäre:
 
-```
-nano hello-world.sh
-# Jetzt hier den Code einfügen, und abspeichern
-chmod +x hello-world.sh 
-./hello-world.sh
-```
+::
+
+    nano hello-world.sh
+    # Jetzt hier den Code einfügen, und abspeichern
+    chmod +x hello-world.sh 
+    ./hello-world.sh
+
 
 Hello World
 ^^^^^^^^^^^
@@ -73,7 +74,7 @@ Normale Befehle starten
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
-    
+
     #!/bin/bash
 
     # Startet den Firefox und man bekommt die Ausgabe mit.
