@@ -130,3 +130,29 @@ Ein korrektes Einstellungsfenster sieht so aus:
 .. warning:: 
     Aktivieren Sie RDP auf Server direkt im Internet erreichbar nicht zum Spaß! 
     Je mehr auf Ihrem Server läuft, ist die Wahrscheinlichkeit für ein potentielles Einfallstor höher.
+
+Dateien versenden
+^^^^^^^^^^^^^^^^^
+Teilweise wird dafür noch das File Transfer Protocol (FTP) verwendet, welches aber unverschlüsselt ist und dadurch nicht empfohlen ist!
+Das SSH File Transfer Protocol oder Secure File Transfer Protocol (SFTP) ist eine für SSH entworfene 
+Alternative zu FTP, die hingegen Verschlüsselung ermöglicht.
+
+Ist ``openssh-server`` auf dem entfernten Rechner schon installiert, kann man sich mit dem Befehl ``sftp`` darauf verbinden.
+Folgende Beispiele helfen:
+
+::
+    sftp jean@1.2.3.4
+    sftp -P 42022 jean@1.2.3.4 # Wenn SSH über den Port 42022 erreichbar ist
+
+Mit dem Befehl ``put`` kann man Dateien an den Server senden, mit ``get`` sie herunterladen.
+Folgende Beispiele helfen:
+
+::
+    put datei-eigener-rechner /absoluter/pfad/auf/dem/server/
+
+    put -R ./relativer/pfad/auf/dem/eigenen/rechner/ordner/ /absoluter/pfad/auf/dem/server/
+    put -R /absoluter/pfad/auf/dem/eigenen/rechner/ordner/ ./relativer/pfad/auf/dem/server/
+
+    get -R /ordner/auf/dem/server
+    get /datei/auf/dem/server
+
