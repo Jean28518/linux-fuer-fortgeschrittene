@@ -156,3 +156,4 @@ Folgende Beispiele helfen:
     get -R /ordner/auf/dem/server
     get /datei/auf/dem/server
 
+Am Ende muss man sich aus der Umgebung wieder ausloggen, was man bspw. mit ``exit`` machen kann.
