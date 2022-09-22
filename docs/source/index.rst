@@ -24,3 +24,4 @@ Contents
    programm_installation
    benutzer_und_rechte
    linux_remote
+   skripting
