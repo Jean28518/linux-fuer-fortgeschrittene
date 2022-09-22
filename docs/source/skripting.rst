@@ -336,11 +336,16 @@ Soll beispielsweise jeden Tag um 2 Uhr morgens ein BackUp gemacht werden? Nichts
     # (Home-Verzeichnis des imaginären Administrators)
     sudo nano /root/backup-minetest.sh
 
+
+
     # Schreiben Sie diesen Text in die Datei:
     #!/bin/bash
     systemctl stop minetest-server.service
+    # Wird im nächsten Kapitel genauer behandelt:
     rsync -rptgo /var/games/minetest-server /backups/minetest-server/
     systemctl start minetest-server.service
+
+
 
     # Machen Sie die Datei ausführbar
     sudo chmod +x /root/backup-minetest.sh
@@ -368,7 +373,8 @@ Soll beispielsweise jeden Tag um 2 Uhr morgens ein BackUp gemacht werden? Nichts
     *: Tag der Woche egal (Mögliche Eingaben: 0 - 7) (wobei 0=Sonntag, 1=Montag, ..., 6=Samstag, 7=Sonntag)
     /root/backup-minetest.sh: Offensichtlich der Pfad zum auszuführenden Skript
 
-    # Nach dem Abspeichern der Datei wird das Skript nun jeden Tag um 2 Uhr morgens automatisch ausgeführt, sofern der Rechner zu dieser Zeit läuft.
+    # Nach dem Abspeichern der Datei wird das Skript nun jeden Tag um 2 Uhr morgens 
+    # automatisch ausgeführt, sofern der Rechner zu dieser Zeit läuft.
 
 
 
