@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'Linux für Fortgeschrittene'
+copyright = '2022, linuxguides.de'
+author = 'linuxguides.de'
 
 release = '0.1'
 version = '0.1.0'
