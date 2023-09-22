@@ -99,34 +99,29 @@ Kurs-Beispiel
 
 Upgrade auf große, neue Version
 -------------------------------
-Vorerst: Solche Upgrades sind eigentlich vom Konzept her nicht vorgesehen, 
-dennnoch bietet bspw. Linux Mint seit einiger Zeit einen Installer dafür an.
-Die Aufgabe ist es, grundgenommen alles auf dem System zu aktualisieren.
-Denn bei kleinen Upgrade bleiben viele System-Bibliotheken auf einem sicheren älteren Stand,
-welche nur bei einem großen Upgrade aktualisiert, neu hinzugefügt oder gar ersetzt werden.
-Bei über 2000 installierten Paketen auf einem üblichen System 
-braucht nur ein Upgrade nicht richtig zu verlaufen - Dann verfährt man sich unter Umständen in viel mehr Probleme.
-Von daher sieht man solche Upgrades im professionellen Bereich sehr, sehr selten.
-Viel Häufiger wird eine blanke Neuinstallation getätigt und die benötigte Software danach 
-(meist auch automatisch über bash-Skripte) installiert, um Komplikationen zu vermeiden.
 
-.. warning:: 
-    Von daher ist eine Neuinstallation im professionellen Umfeld immer empfehlenswerter, 
-    da Bugs mit einer viel geringeren Wahrscheinlichkeit auftreten.
+.. warning::
+    Upgrades bergen ein großes Risiko und sollten nur dann getätigt werden, wenn ausreichend Backups gemacht wurden.
 
-Aber trotzdem gibt es eine relativ einfache Methode, sein System auf eine neue Version hochzuziehen,
-was auch halbwegs verlässlich auch über mehrere Versionen hinweg funktioniert:
-Um auf eine neue Version zu wechseln werden einfach die Software-Quellen in ``/etc/apt/sources.list*`` auf die der neuen Version gesetzt
-und dann ein ``apt dist-upgrade`` durchgeführt, was ein etwas erweitertes ``apt upgrade`` darstellt.
+Bei Ubuntu-Server gibt es einen eigenen Upgrade-Prozess, welcher über ``do-release-upgrade`` gestartet werden kann.
+
+Um bei Debian auf eine neue Version zu aktualisieren, 
+werden einfach die Software-Quellen in ``/etc/apt/sources.list`` auf den Codenamen der neuen Version gesetzt 
+und dann ein ``apt dist-upgrade`` durchgeführt, was ein etwas erweitertes apt upgrade darstellt.
 Der Unterschied ist hier, dass nicht mehr benötigte Pakete direkt automatisch mit entfernt werden.
 
-.. note:: Erfahrungsbericht:
-    Mit ein bisschen Übung kann man jedes System so mit manueller Überwachung aktualisieren.
-    Dies ist für Desktop-Betriebssyteme sehr nützlich, 
-    da so nicht alle zwei Jahre das System neu eingerichtet werden muss.
-    Auf Server-Systemen ist es häufig Zeit-Effizienter, eine Neuinstallation zu tätigen,
-    wenn die gespeicherten Daten-Mengen auf dem Server nicht hoch sind. Findet man allerdings eine
-    voll eingerichtete Nextcloud mit mehreren 100 GB Daten vor, ist ein manuelles Upgrade wahrscheinlich sinnvoller.
+.. hint::
+    Sollten PHP-Seiten wie bspw. Nextcloud mit aktualisiert werden, muss geprüft werden, 
+    welche PHP-Version die neue Betriebssysteminstallation mit sich bringt
+    und ob die aktuelle Nextcloud-Version diese unterstützt.
+
+Häufigkeit
+^^^^^^^^^^
+
+Es wird empfohlen, die Systeme wenige Monate (bei Server-Systemen: ein Jahr) nach Erscheinungsdatum einer großen Version jeweils zu aktualisieren.
+Lässt man ein Linux einige Jahre auf einer Version weiter laufen, lohnt sich dann meist eine Neuinstallation mehr, 
+welche vor allem bei großen Server-Systemen sehr aufwändig werden kann.
+
 
 Kernel wechseln
 ---------------

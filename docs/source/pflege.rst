@@ -1,7 +1,7 @@
 Systempflege
 ============
 
-Richtig eingerichtet bedarf ein Linux-System keine Pflege mehr.
+Richtig eingerichtet bedarf ein Linux-System nur sehr wenig Pflege.
 Wie Sie das erreichen, wird in diesem Kapitel geklärt.
 Ebenfalls werden Reparatur-Maßnahmen behandelt.
 
@@ -9,11 +9,11 @@ Automatische Systempflege
 -------------------------
 Wichtig: Ein Linux-System "verschmutzt" im Regelbetrieb kaum.
 
-Wöchentliche Neustarts
-^^^^^^^^^^^^^^^^^^^^^^
+Regelmäßige Neustarts
+^^^^^^^^^^^^^^^^^^^^^
 Nicht mehr benötigte, temporäre Dateien sowie zu unrecht belegte Arbeitsressourcen könnten sich aber dennoch während des Betriebs nach und nach einschleichen.
 Meist entstehen solche Situation in Kombination mit nicht optimal programmierter Software (was wirklich schwierig ist), die auf dem System läuft.
-Um diesem vorzubeugen, wird ein wöchentlicher Neustart des gesamten Systems empfohlen, wenn sich dies einrichten lässt.
+Um diesem vorzubeugen, wird ein täglicher Neustart des gesamten Systems empfohlen, wenn sich dies einrichten lässt.
 
 Bei einem Neustart reinigt sich das System selber:
 Alle temporären Dateien im /tmp Ordner werden gelöscht und ungenutzer, dennoch belegter Arbeitsspeicher wird wieder freigegeben.
@@ -24,10 +24,6 @@ läuft bis zu einem Neustart in der alten Version weiter.
 
 Zudem beugt ein regelmäßiger Neustart aller Komponenten seltenen Bugs vor, 
 die sich vielleicht erst nach einigen, komplizierten, schwer reproduzierbaren Betriebsszuständen ergeben.
-
-Können Sie sich keinen wöchentlichen Neustart des Systems leisten, 
-ist unbedingt ein digitaler Zwilling mit einem Load-Balancer davor empfohlen.
-Docker und Kubernetes können sich hier sehr lohnen.
 
 Ein einfacher cronjob (im Kapitel zum Skripting beschrieben) reicht hier aus. Anstatt den einzelnen Befehl ``reboot`` anzugeben, 
 wird empfohlen, den Pfad zur ausführbaren Datei anzugeben, der ``/sbin/reboot`` ist.
@@ -48,8 +44,12 @@ Um immer abgesichert zu sein, werden automatische Aktualisierungen unbedingt emp
     sudo dpkg-reconfigure -plow unattended-upgrades
     # Hier durch die Dialoge mit den Pfeiltasten, Tabulator und der Leer- oder Eingabetaste navigieren.
 
-Nun wird unattended-upgrades in regelmäßigen Abständen vollautomatisch Aktualisierungen machen.
-Dieser Schritt wird nur bei Systemen empfohlen, die keine grafische Option haben, automatische Updates zu konfigurieren.
+Nun wird unattended-upgrades in regelmäßigen Abständen vollautomatisch Aktualisierungen von Sicherheitskritischen Anwendungen machen.
+
+.. note::
+    Möchten Sie Ihr Linux vollautomatisch komplett aktualisieren lassen (alle verfügbaren Aktualisierungen anwenden),
+    können Sie dies unter ``/etc/apt/apt.conf.d/50unattended-upgrades`` einstellen.
+    In vielen Konfigurationen macht dies aber auch ein cron job, welcher ein ``apt update && apt upgrade`` ausführt.
 
 
 Backups
@@ -59,7 +59,7 @@ Dabei gibt es viele verschiedene Wege, die zum Ziel führen.
 
 rsync
 ^^^^^
-Behandeln wir zunächst eine alte Konstante im Linux-Bereich.
+Behandeln wir zunächst eine alte aber auch sehr weit verbreitete Konstante im Linux-Bereich.
 Rsync synchronisiert/spiegelt am Ende definierte Ordner und Dateien an einen anderen Ort.
 Falls Dateien an dem einen Ort kaputt gehen, kann man diese vom anderen Ort wiederherstellen.
 Die Vorteile von rsync sind, dass es relativ einfach einzurichten ist, sowie die Dateien in unveränderter Form (unkomprimiert) vorliegen.
@@ -122,7 +122,7 @@ Dafür ist borg geringfügig komplizierter in der Handhabung.
 Borg funktioniert natürlich auch für normale Nutzer, dennoch macht dies in den Anwendungsfällen für Server wenig Sinn.
 
 .. tip:: 
-    Möchte man auf seinem privaten Computer entspannt Backups machen? 
+    Möchte man auf seinem privaten Computer grafisch Backups erledigen? 
     Installieren Sie das Programm ``Pika Backup`` oder ``Pika Datensicherung``,
     welches eine grafische Oberfläche für einfache Borg-Backups hat.
     Ich selber nutze das Programm für meine Rechner.

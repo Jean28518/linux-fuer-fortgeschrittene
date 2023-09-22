@@ -52,7 +52,7 @@ Zu Beginn wird der Typ definiert. Dieser kann entweder ``deb`` oder ``deb-src`` 
 Letzteres ist lediglich zum Ansehen von Quellen notwendig.
 
 Darauffolgend wird eine normale http-Adresse angegeben, dann der Distributions-/Versionsname.
-Beispiele wären: ``jammy`` oder ``bullseye``.
+Beispiele wären: ``jammy`` oder ``bookworm``.
 
 Letztendlich kann die Quelle dann noch weiter mit Optionen (Komponenten) spezifizert werden.
 Einheitliche Regeln gibt es hierfür nicht distributionsübergreifend.
