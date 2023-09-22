@@ -113,7 +113,7 @@ Der Unterschied ist hier, dass nicht mehr benötigte Pakete direkt automatisch m
 .. hint::
     Sollten PHP-Seiten wie bspw. Nextcloud mit aktualisiert werden, muss geprüft werden, 
     welche PHP-Version die neue Betriebssysteminstallation mit sich bringt
-    und ob die aktuelle Nextcloud-Version diese unterstützt.
+    und ob die vorhandene Nextcloud-Version diese unterstützt.
 
 Häufigkeit
 ^^^^^^^^^^
