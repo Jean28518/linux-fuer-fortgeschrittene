@@ -49,7 +49,7 @@ Nun wird unattended-upgrades in regelmäßigen Abständen vollautomatisch Aktual
 .. note::
     Möchten Sie Ihr Linux vollautomatisch komplett aktualisieren lassen (alle verfügbaren Aktualisierungen anwenden),
     können Sie dies unter ``/etc/apt/apt.conf.d/50unattended-upgrades`` einstellen.
-    In vielen Konfigurationen macht dies aber auch ein cron job, welcher ein ``apt update && apt upgrade`` ausführt.
+    In vielen meiner Server-Konfigurationen macht dies aber auch ein cron job, welcher ein ``apt update && apt upgrade`` ausführt.
 
 
 Backups
