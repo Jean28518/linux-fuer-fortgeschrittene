@@ -193,7 +193,7 @@ Debugging im laufenden System
 - Sollte ein Service oder das Bebtriebssystem nicht mehr einwandfrei funktionieren, hilft es, mit dem Befehl ``journalctl`` auf Spurensuche zu gehen.
 - Auch hilft es mit ``systemctl status`` den entsprechenden Service nachzusehen.
 - Manchmal hilft eine Neuinstallation des betreffenden Paketes. Gerne mal mit ``apt purge paketname`` (löscht alle Konfigurationsdateien des Pakets) versuchen.
-- Werden Geräte nicht erkannt, können Sie mit ``lspcsi`` oder ``lsusb`` weiter untersucht werden.
+- Werden Geräte nicht erkannt, können Sie mit ``lspci`` oder ``lsusb`` weiter untersucht werden.
 
 
 Notfallsystem

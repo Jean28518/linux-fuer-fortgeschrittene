@@ -93,7 +93,7 @@ Sofern die Programme installiert sind, funktionieren die Befehle/Tastenkombinati
 cd                         wechsle in das aktuelle Home-Verzeichnis (persönlicher Ordner)
 cd <PFAD>                  wechsle ein Verzeichnis
 ls (<PFAD>)                zeige Dateien an
-ls -al #oder ll            zeige alle Dateien mit allen Infos an
+ls -alh #oder ll           zeige alle Dateien mit allen Infos an
 cp <PFAD> <PFAD>           kopiere einen Pfad an einen anderen (neuen Pfad)  (mit -r kann man auch ganze Ordner kopieren)
 mv <PFAD> <PFAD>           verschiebe eine Datei an einen anderen Pfad oder bennenne sie um
 rm <PFAD>                  lösche eine Datei (oder mit -r einen ganzen Ordner)
